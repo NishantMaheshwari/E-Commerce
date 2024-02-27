@@ -4,9 +4,12 @@
     justify-content: space-around;
     align-items: center;
     padding: 15px 0px 5px 0px;
-   /* z-index: 999; */
-    margin-left: 2rem;
+    z-index: 999;
+    /* margin-left: 2rem; */
     gap:0px;
+    position: sticky;
+    top:0;
+    background-color: #fff;
   }
   
   .search-input {
@@ -24,6 +27,14 @@
     width: 1.5rem;
     height: 1.5rem;
     margin-left: 2rem;
+    color: #4169E1;
+  }
+
+  .nav-icons.dark-mode {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 2rem;
+    color: #8470FF;
   }
 
   .user-name {
@@ -64,4 +75,15 @@
   .user-options button:hover {
     background-color: #f3f3f3;
   }
+
+  .navbar-wrapper.dark-mode {
+    background-color: #333; 
+    color: #fff;
+  }
+  
+  .theme-toggle {
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
   

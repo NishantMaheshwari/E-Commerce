@@ -1,3 +1,10 @@
+.product-wrapper {
+  /* display: flex;
+  justify-content: center; */
+  margin-top: 20px;
+  min-height: 73vh;
+}
+
 .product-container {
     display: flex;
     border: 1px solid #ccc;
@@ -7,7 +14,7 @@
     justify-content: space-around;
     padding: 20px;
     width: 65%;
-    height: 15%;
+
     margin:auto;
     margin-top:100px;
   }

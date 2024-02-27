@@ -4,6 +4,8 @@
     margin-left: 20rem;
     margin-top: 2rem;
     z-index: -2;
+    align-items: flex-start;
+    min-height: 85vh;
   }
 
   .card {
@@ -38,7 +40,11 @@
   }
   
   .rating-star {
-    color: #d5ab55;
+    color: hsl(46, 84%, 56%);
+  }
+
+  .dark-mode .rating-star{
+    color: #ebf219;
   }
   
   .total-reviews {
@@ -53,7 +59,7 @@
   }
   
   .bag-icon {
-    color: #535353;
+    color: #55a3a3;
   }
 
   .card-title:hover {
@@ -62,6 +68,39 @@
   
 
   .bag-icon:hover {
+    color: #ff6347; 
+  }
+
+  .card-container.dark-mode {
+    background-color: #333; 
+    color: #fff;
+  }
+
+  .card.dark-mode {
+    margin: 20px;
+    border: 2px solid #ccc;
+    padding: 20px;
+    /* width: 30%;
+    height: 500px; */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-title.dark-mode {
+    color:#ccc;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .card-title.dark-mode:hover {
+    color: #ff7f50;
+  }
+
+  .bag-icon.dark-mode {
+    color: #a5d8ff ;
+  }
+
+  .bag-icon.dark-mode:hover {
     color: #ff6347; 
   }
 

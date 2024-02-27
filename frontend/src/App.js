@@ -3,19 +3,27 @@ import LoginForm from './components/LoginForm/LoginForm';
 import MainPageRouter from './pages/MainPageRouter';
 import { Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast'; 
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
+import { themeReducer } from './reducers/themeReducer';
+import { ThemeContext } from './context/ThemeContext';
 
 function App() {
-  console.log('Inside app');
-  // const [userName, setUserName] = useState(localStorage.getItem('userName') || null);
+
+  const initialTheme = {
+    darkMode:false
+  }
+
+  const [theme,dispatch] = useReducer(themeReducer,initialTheme);
+
   return (
-    <div className="App">
-      
-      <Toaster />
-      <Routes>
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="*" element={<MainPageRouter />} />
-      </Routes>
+    <div className={`App ${theme.darkMode ? 'dark-mode' : ''}`}>
+      <ThemeContext.Provider value={{theme,dispatch}}>
+        <Toaster />
+        <Routes>
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="*" element={<MainPageRouter />} />
+        </Routes>
+      </ThemeContext.Provider>  
     </div>
   );
 }

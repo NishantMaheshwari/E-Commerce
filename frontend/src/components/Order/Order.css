@@ -1,7 +1,8 @@
 .order-wrapper {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     margin-top: 20px;
+    min-height: 100vh;
 }
 
 .order-container {
@@ -11,6 +12,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
+    margin: auto;
 }
 
 .order {
@@ -45,4 +47,14 @@
 
 .order-item-details p {
     margin: 5px 0;
+}
+
+.order-container.dark-mode {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    margin: auto;
 }

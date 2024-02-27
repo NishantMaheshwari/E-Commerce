@@ -35,31 +35,33 @@ const Product = () => {
   
 
   return (
-    <div className="product-container">
-      {product ? (
-        <>
-        <div className="product-image">
-            <img src={product.image} alt={product.name} />
-        </div>
-        <div className="product-details">
-            <h2>{product.name}</h2>
-            <p className="category">Category: {product.category}</p>
-            <p className="price">Price: Rs {product.price}</p>
-            <div className="rating">
-            {Array.from({ length: product.rating }).map((_, index) => (
-                <span key={index}>⭐</span>
-            ))}
-            </div>
-            <p className="description">{product.description}</p>
+    <div className='product-wrapper'>
+      <div className="product-container">
+        {product ? (
+          <>
+          <div className="product-image">
+              <img src={product.image} alt={product.name} />
+          </div>
+          <div className="product-details">
+              <h2>{product.name}</h2>
+              <p className="category">Category: {product.category}</p>
+              <p className="price">Price: Rs {product.price}</p>
+              <div className="rating">
+              {Array.from({ length: product.rating }).map((_, index) => (
+                  <span key={index}>⭐</span>
+              ))}
+              </div>
+              <p className="description">{product.description}</p>
+          
+              <button onClick={handleAddCart} className="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </>
+        ) : (
+          <></>
+        )}
         
-            <button onClick={handleAddCart} className="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </>
-      ) : (
-        <></>
-      )}
-      
-    </div>
+      </div>
+    </div>  
   );
 };
 

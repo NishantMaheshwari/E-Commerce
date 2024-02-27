@@ -1,12 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getCart, removeProductFromCart, emptyCart } from "../../services/operations/cartAPI";
 import { addProductsToOrder } from "../../services/operations/orderAPI";
 import {RiDeleteBinLine} from 'react-icons/ri'
 import "./Cart.css";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const Cart = ({userName}) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
+
+  const {theme} = useContext(ThemeContext);
 
   useEffect(() => {
     fetchCartItems();
@@ -57,7 +60,7 @@ const Cart = ({userName}) => {
 
   return (
     <div className="cart-wrapper">
-      <div className="cart-container">
+      <div className={`cart-container ${theme.darkMode ? 'dark-mode' : ''}`}>
         <h2>Your Cart</h2>
           {userName ? (
             <div className="cart-items">

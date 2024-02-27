@@ -5,12 +5,12 @@ dotenv.config();
 
 exports.auth = (req,res,next) => {
     try{
-        //extract token
+        
         // console.log('Entered auth middleware');
         // console.log(req.body);
         const token = req.body.token || req.header("Authorization");
         // console.log(token);
-        //if token missing, then return response
+       
         if(!token) {
             return res.status(401).json({
                 success:false,
@@ -18,7 +18,7 @@ exports.auth = (req,res,next) => {
             });
         }
 
-        //verify the token
+       
         try{
             const decode =  jwt.verify(token, process.env.JWT_SECRET);
             // console.log(decode);
@@ -26,7 +26,7 @@ exports.auth = (req,res,next) => {
             // console.log(req.user);
         }
         catch(err){
-            //verification - issue
+         
             return res.status(401).json({
                 success:false,
                 message:'token is invalid',

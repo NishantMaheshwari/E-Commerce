@@ -1,10 +1,14 @@
 import './LoginForm.css';
 import { login } from '../../services/operations/authAPI';
 import { Link, useNavigate } from "react-router-dom"
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeContext'; 
+import { BiMoon, BiSun } from 'react-icons/bi';
+import { TOGGLE_THEME } from '../../reducers/themeReducer';
 
 function LoginForm() {
   const navigate = useNavigate();
+  const { theme,dispatch } = useContext(ThemeContext); 
   const [formData,setFormData] = useState({
     email:'',
     password:''
@@ -29,16 +33,24 @@ function LoginForm() {
       password:''
     })
   }
+
+  const toggleTheme = () => {
+    dispatch({type : TOGGLE_THEME});
+  }
   
   // console.log('Inside Login Form');
 
   return (
-    <div className="login-main">
-     <div className="sub-main">
+    <div className={`login-main ${theme.darkMode ? 'dark-mode' : ''}`}> 
+     <div className="theme-toggle-login" onClick={toggleTheme}>
+        {theme.darkMode ? <BiSun /> : <BiMoon />}
+        {theme.darkMode ? ' Light Mode' : ' Dark Mode'}
+      </div>
+     <div className={`sub-main ${theme.darkMode ? 'dark-mode' : ''}`}>
        <div>
          <div className="login-imgs">
            <div className="login-container-image">
-             <img src='./person.png' alt="login-profile" className="login-profile"/>
+             <img src='/eCom1.png' className="login-profile"/>
             </div>
          </div>
          <div>

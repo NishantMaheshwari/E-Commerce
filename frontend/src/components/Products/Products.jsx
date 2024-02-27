@@ -1,11 +1,15 @@
 import "./Products.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Card from "../Card/Card";
 import { getAllProducts } from "../../services/operations/productAPI";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const Products = ({searchQuery,sortQuery,category,rating}) => {
     const [products,setProducts] = useState([]);
     const [searchProducts,setSearchProducts] = useState([]);
+
+    const {theme,dispatch} = useContext(ThemeContext);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -29,7 +33,7 @@ const Products = ({searchQuery,sortQuery,category,rating}) => {
 
 
     return (
-        <div className="card-container">
+        <div className={`card-container ${theme.darkMode ? 'dark-mode' : ''}`}>
             {
                 searchProducts.map(({name,category,price,rating,image,_id}) => (
                     <Card 

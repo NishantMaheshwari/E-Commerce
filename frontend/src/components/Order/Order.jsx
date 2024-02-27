@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import './Order.css'; // Import your CSS file for styling
+import React, { useState, useEffect, useContext } from 'react';
+import './Order.css'; 
 import { getOrders } from '../../services/operations/orderAPI';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const Order = ({userName}) => {
     const [userOrders, setUserOrders] = useState([]);
+
+    const {theme} = useContext(ThemeContext);
 
     useEffect(() => {
         fetchUserOrders();
@@ -20,7 +23,7 @@ const Order = ({userName}) => {
 
     return (
         <div className="order-wrapper">
-            <div className="order-container">
+            <div className={`order-container ${theme.darkMode ? 'dark-mode' : ''}`}>
                 <h2>Your Orders</h2>
                     {userName ? (
                         <>

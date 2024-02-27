@@ -1,4 +1,4 @@
-import "./SortOptions.css"; // Import your CSS file for styling
+import "./SortOptions.css"; 
 
 function SortOptions({ handleSortChange }) {
   return (

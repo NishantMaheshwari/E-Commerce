@@ -1,12 +1,22 @@
-import { AiOutlineShoppingCart, AiOutlineUserAdd, AiOutlineLogout } from "react-icons/ai";
 import { FaBoxOpen } from "react-icons/fa";
-import { useEffect, useState } from 'react';
+import { FaHome } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
+import { HiUserAdd } from "react-icons/hi";
+import { RiLogoutCircleRFill } from "react-icons/ri";
+import { useEffect, useState,useContext } from 'react';
 import { Link } from "react-router-dom";
 import SortOptions from "../SortOptions/SortOptions";
 import "./Navbar.css";
+import { TOGGLE_THEME, themeReducer } from "../../reducers/themeReducer";
+import { ThemeContext } from "../../context/ThemeContext";
+import { BiMoon, BiSun } from 'react-icons/bi';
+
+
 
 const Navbar = ({ handleInputChange, searchQuery, userName,setUserName,handleSortChange }) => {
   const [showUserOptions, setShowUserOptions] = useState(false);
+
+  const {theme,dispatch} = useContext(ThemeContext);
 
   useEffect(() => {
     setUserName(localStorage.getItem('userName') || null);
@@ -16,7 +26,11 @@ const Navbar = ({ handleInputChange, searchQuery, userName,setUserName,handleSor
     setShowUserOptions(!showUserOptions);
   };
 
-  console.log(showUserOptions);
+ // console.log(showUserOptions);
+
+ const toggleTheme = () => {
+    dispatch({type : TOGGLE_THEME});
+ }
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -25,7 +39,11 @@ const Navbar = ({ handleInputChange, searchQuery, userName,setUserName,handleSor
   };
 
   return (
-    <nav className="navbar-wrapper">
+    <nav className={`navbar-wrapper ${theme.darkMode ? 'dark-mode' : ''}`}>
+      <div className="theme-toggle" onClick={toggleTheme}>
+        {theme.darkMode ? <BiSun /> : <BiMoon />}
+        {theme.darkMode ? ' Light Mode' : ' Dark Mode'}
+      </div>
       <div className="nav-container">
         <input
           className="search-input"
@@ -44,20 +62,23 @@ const Navbar = ({ handleInputChange, searchQuery, userName,setUserName,handleSor
             </span>
             {showUserOptions && (
               <div className="user-options">
-                <button onClick={handleLogout}><AiOutlineLogout className="nav-icons" /> Logout</button>
+                <button onClick={handleLogout}><RiLogoutCircleRFill className={`nav-icons ${theme.darkMode ? 'dark-mode' : ''}`} /> Logout</button>
               </div>
             )}
           </>
         ) : (
           <Link to="/login">
-            <AiOutlineUserAdd className="nav-icons" />
+            <HiUserAdd className={`nav-icons ${theme.darkMode ? 'dark-mode' : ''}`} />
           </Link>
         )}
+        <Link to="/">
+          <FaHome className={`nav-icons ${theme.darkMode ? 'dark-mode' : ''}`} />
+        </Link> 
         <Link to="/orders">
-          <FaBoxOpen className="nav-icons" />
+          <FaBoxOpen className={`nav-icons ${theme.darkMode ? 'dark-mode' : ''}`} />
         </Link> 
         <Link to="/cart">
-          <AiOutlineShoppingCart className="nav-icons" />
+          <FaShoppingCart className={`nav-icons ${theme.darkMode ? 'dark-mode' : ''}`} />
         </Link>  
       </div>
     </nav>

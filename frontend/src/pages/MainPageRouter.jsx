@@ -3,15 +3,23 @@ import Cart from "../components/Cart/Cart";
 import Order from "../components/Order/Order";
 import Product from "../components/Product/Product";
 import {Route, Routes, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useReducer } from "react";
 import HomePage from "./HomePage";
+import { themeReducer } from "../reducers/themeReducer";
+import { ThemeContext } from "../context/ThemeContext";
 
 
 const MainPageRouter = () => {
-    console.log('Inside main page');
+    // console.log('Inside main page');
     const [userName, setUserName] = useState(localStorage.getItem('userName') || null);
     const [searchQuery,setSearchQuery]=useState('');
     const [sortQuery,setSortQuery] = useState('none');
+
+    const initialTheme = {
+        darkMode:false
+    }
+
+    const [theme,dispatch] = useReducer(themeReducer,initialTheme);
 
     const handleInputChange = (e) => {
         setSearchQuery(e.target.value);
@@ -32,7 +40,6 @@ const MainPageRouter = () => {
                 <Route path="/orders" element={<Order userName={userName}/>}/>
                 <Route path="/product/:productId" element={<Product/>} />
             </Routes>
-            <div></div>
         </>  
     );
 };

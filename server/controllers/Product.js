@@ -4,7 +4,7 @@ exports.getProduct = async (req, res) => {
 
     try {
         const {productId} = req.query;
-        console.log(productId);
+        // console.log(productId);
         const product = await Product.findById(productId);
         if (product) {
           return res.status(200).json({success:true, product, meassage: 'Product fetched successfully'});

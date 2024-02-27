@@ -6,25 +6,25 @@ dotenv.config();
 
 exports.login = async (req, res) => {
 	try {
-		// Get email and password from request body
+		
 		const { email, password } = req.body; 
 		// console.log('Inside auth controller', req.body);
-		// Check if email or password is missing
+		
 		if (!email || !password) {
-			// Return 400 Bad Request status code with error message
+			
 			return res.status(400).json({
 				success: false,
 				message: `Please Fill up All the Required Fields`,
 			});
 		}
 
-		// Find user with provided email
+		
 		const user = await User.findOne({ email });
 
 		const atIndex = email.indexOf('@');
 		const userName = email.slice(0, atIndex);
 
-		// If user not found with provided email then add it in the database
+		
 		if (!user) {
 			const newUser = await User.create({
                 email,
@@ -44,7 +44,7 @@ exports.login = async (req, res) => {
 				userName
             });
 		}
-		// Compare Password
+	
 		if (password === user.password) {
 			const token = jwt.sign(
 				{ userId: user._id},
@@ -68,7 +68,7 @@ exports.login = async (req, res) => {
 		}
 	} catch (error) {
 		console.error(error);
-		// Return 500 Internal Server Error status code with error message
+		
 		return res.status(500).json({
 			success: false,
 			message: `Login Failure Please Try Again`,
