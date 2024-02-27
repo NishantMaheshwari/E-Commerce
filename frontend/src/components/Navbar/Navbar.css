@@ -1,0 +1,67 @@
+.navbar-wrapper {
+    display: flex;
+    border-bottom: 2px solid #f3f3f3;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0px 5px 0px;
+   /* z-index: 999; */
+    margin-left: 2rem;
+    gap:0px;
+  }
+  
+  .search-input {
+    padding: 12px 20px;
+    border: none;
+    background: #f7f6f6;
+    outline: none;
+    margin-right: 20px;
+    border-radius: 5px;
+    position: relative;
+    width: 14rem;
+  }
+  
+  .nav-icons {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 2rem;
+  }
+
+  .user-name {
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
+  .user-options {
+    position: absolute;
+    top: 100%;
+    right: -20;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* padding: 5px; */
+    z-index: 1000;
+  }
+
+  .profile-container{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 15%;
+  }
+  
+  .user-options button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .user-options button:hover {
+    background-color: #f3f3f3;
+  }
+  
