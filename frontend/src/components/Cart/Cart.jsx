@@ -59,7 +59,7 @@ const Cart = ({userName}) => {
   };
 
   return (
-    <div className="cart-wrapper">
+    <div className={`cart-wrapper ${theme.darkMode ? 'dark-mode' : ''}`}>
       <div className={`cart-container ${theme.darkMode ? 'dark-mode' : ''}`}>
         <h2>Your Cart</h2>
           {userName ? (

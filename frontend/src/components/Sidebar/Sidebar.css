@@ -7,7 +7,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -2rem;
+    /* margin-top: -2rem; */
+    box-shadow: 5px 5px 10px rgb(207, 207, 207);
+    background-color: white;
   }
   
   .logo-container h1 {
@@ -15,6 +17,7 @@
   }
 
   .sidebar.dark-mode {
-    background-color: #333; 
+    background-color: #1f1f1f; 
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.199);
     color: #fff;
   }

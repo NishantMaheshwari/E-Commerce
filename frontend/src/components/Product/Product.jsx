@@ -1,13 +1,17 @@
 import './Product.css'; 
 import { useParams } from 'react-router-dom';
 import { getProduct } from '../../services/operations/productAPI';
-import { useState,useEffect } from 'react';
+import { useState,useEffect, useContext } from 'react';
 import { addProductToCart } from '../../services/operations/cartAPI';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const Product = () => {
   const {productId} = useParams();
   const [product, setProduct] = useState(null);
  // console.log(productId);
+
+ const {theme} = useContext(ThemeContext);
+
   useEffect(() => {
     // console.log('Inside use effect');
     fetchProduct(productId);
@@ -35,8 +39,8 @@ const Product = () => {
   
 
   return (
-    <div className='product-wrapper'>
-      <div className="product-container">
+    <div className={`product-wrapper ${theme.darkMode ? 'dark-mode' : ''}`}>
+      <div className={`product-container ${theme.darkMode ? 'dark-mode' : ''}`}>
         {product ? (
           <>
           <div className="product-image">

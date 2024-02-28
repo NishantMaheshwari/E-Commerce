@@ -49,7 +49,13 @@ exports.getOrders = async(req,res) => {
             return res.status(400).json({ success:false, message: 'User Not Found' });
         }
         const userOrders = await Order.find({ user: userId }).populate('orderItems');
-        const userOrderProducts = userOrders.map(order => order.orderItems);
+        const userOrderProducts = userOrders.map(order => {
+            return {
+                orders : order.orderItems,
+                totalPrice : order.totalPrice 
+            }
+
+        });
         return res.status(200).json({
             success:true,
             orders:userOrderProducts,

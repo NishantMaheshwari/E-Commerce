@@ -19,9 +19,9 @@
   justify-content: center;
   height: 550px;
   width: 50%;
-  box-shadow: 5px 5px 10px rgb(207, 207, 207);
   padding-top: 30px;
   border-radius: 60px; 
+  box-shadow: 5px 5px 10px rgb(207, 207, 207);
   background-color: white;
 }
 
@@ -30,9 +30,9 @@
   justify-content: center;
   height: 550px;
   width: 50%;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.199);
   padding-top: 30px;
   border-radius: 60px; 
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.199);
   background-color: #1f1f1f;
 }
 

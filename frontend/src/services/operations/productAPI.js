@@ -1,8 +1,10 @@
 import { productEndpoints } from "../apis";
+import { toast } from "react-hot-toast";
 import axios from "axios";
 
 export async function getAllProducts(category,rating,sortQuery){
     try{
+      //  const toastId = toast.loading("Loading...");
         const response = await axios.get(productEndpoints.GET_ALL_PRODUCTS, { 
             params: { 
                 category,
@@ -14,6 +16,7 @@ export async function getAllProducts(category,rating,sortQuery){
             throw new Error(response.data.message);
         }
         //console.log(response.data.allProducts);
+      //  toast.dismiss(toastId);
         return response.data.allProducts;
     }catch(error){
         console.log("Fetching Products ERROR ....",error);

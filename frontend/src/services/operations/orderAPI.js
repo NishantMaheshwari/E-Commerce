@@ -4,6 +4,8 @@ import { toast } from "react-hot-toast";
 
 export async function getOrders(){
     try{
+        // console.log(19);
+        // const toastId = toast.loading("Loading...");
         const token = localStorage.getItem('jwtToken');
         const headers = {
             'Authorization' : token
@@ -13,6 +15,7 @@ export async function getOrders(){
         if(response.data.success === false){
             throw new Error(response.data.message);
         }
+        // toast.dismiss(toastId);
         return  response.data.orders;
     }catch(error){
         console.log("Fetching order ERROR ....",error);

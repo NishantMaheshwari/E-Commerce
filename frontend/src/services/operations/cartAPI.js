@@ -4,6 +4,7 @@ import {toast} from 'react-hot-toast';
 
 export async function getCart(){
     try{
+        // const toastId = toast.loading("Loading...");
         const token = localStorage.getItem('jwtToken');
         // console.log(token);
         const headers = {
@@ -14,6 +15,7 @@ export async function getCart(){
         if(response.data.success === false){
             throw new Error(response.data.message);
         }
+        // toast.dismiss(toastId);
         return  response.data.cart;
     }catch(error){
         console.log("Fetching cart ERROR ....",error);

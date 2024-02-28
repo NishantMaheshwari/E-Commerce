@@ -21,16 +21,18 @@ const Order = ({userName}) => {
         }
     };
 
+
+
     return (
-        <div className="order-wrapper">
+        <div className={`order-wrapper ${theme.darkMode ? 'dark-mode' : ''}`}>
             <div className={`order-container ${theme.darkMode ? 'dark-mode' : ''}`}>
                 <h2>Your Orders</h2>
                     {userName ? (
                         <>
-                        {userOrders.map((order, index) => (
-                        <div key={index} className="order">
+                        {userOrders.map((orderInfo, index) => (
+                        <div key={index} className={`order ${theme.darkMode ? 'dark-mode' : ''}`}>
                             <h3>Order ID: {index+1}</h3>
-                            {order.map((product, idx) => (
+                            {orderInfo.orders.map((product, idx) => (
                                 <div key={idx} className="order-item">
                                     <img src={product.image} alt={product.name} className="order-item-image" />
                                     <div className="order-item-details">
@@ -39,6 +41,7 @@ const Order = ({userName}) => {
                                     </div>
                                 </div>
                             ))}
+                            <h3 className='total-price'>Total Price: Rs {orderInfo.totalPrice}</h3>
                         </div>
                         ))}
                         </>
