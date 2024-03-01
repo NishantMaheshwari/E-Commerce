@@ -1,0 +1,261 @@
+{
+	"info": {
+		"_postman_id": "46f583be-a2fa-42e4-858d-446de93b47a7",
+		"name": "ECommerce Knol",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"id": "febf72ae-f01b-4680-8be5-c770b11732f1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"test3@gmail.com\",\r\n    \"password\" : \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_AUTH}}/login"
+					},
+					"response": []
+				}
+			],
+			"id": "4b5bd2c0-2fd3-449d-8042-a24727c25c01"
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"id": "a22b6b52-b93a-466e-91ac-af0231e479f0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_PRODUCTS}}/getAllProducts"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Specific Product",
+					"id": "b16f0bc0-e714-4b2a-85bb-6dec67e9b83e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\" : \"65cf46842cc7aacd5d314a1f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_PRODUCTS}}/getSpecificProduct"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Product",
+					"id": "2ef76910-b8fe-4390-8aa9-7db302fa19d2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Wedding Prom Bridal\",\r\n    \"category\": \"flats\",\r\n    \"price\": 5000,\r\n    \"rating\": 1,\r\n    \"description\": \"Elegant bridal flats for a comfortable and stylish wedding day.\",\r\n    \"image\": \"https://m.media-amazon.com/images/I/71yhoZP0l6L._AC_UY695_.jpg\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_PRODUCTS}}/addProduct"
+					},
+					"response": []
+				}
+			],
+			"id": "46a3e64b-2616-435d-ac03-a54d061083f4"
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Get Cart for User",
+					"id": "1225547c-90ad-469a-af30-b71547d03fab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWRjNjk1OGU5MTgzMmQ2OTU5NjQ3MzIiLCJpYXQiOjE3MDkyNjkzMTIsImV4cCI6MTcwOTI5MDkxMn0.vZQHqUrI7G55kAeVyS73OzIG5kx6hlS86ZDZohx6nKs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_CART}}/getCart"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Product To Cart",
+					"id": "b096cd63-533f-4811-9be0-932b02501b92",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWRjNjk1OGU5MTgzMmQ2OTU5NjQ3MzIiLCJpYXQiOjE3MDkyNjkzMTIsImV4cCI6MTcwOTI5MDkxMn0.vZQHqUrI7G55kAeVyS73OzIG5kx6hlS86ZDZohx6nKs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\" : \"65cf46e92cc7aacd5d314a26\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_CART}}/addProduct"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Product From Cart",
+					"id": "71afbdfc-97c6-4cd6-b60b-32a90deec502",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWRjNjk1OGU5MTgzMmQ2OTU5NjQ3MzIiLCJpYXQiOjE3MDkyNjkzMTIsImV4cCI6MTcwOTI5MDkxMn0.vZQHqUrI7G55kAeVyS73OzIG5kx6hlS86ZDZohx6nKs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\" : \"65cf38e4ac68c4c9e2f2fe93\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_CART}}/removeProduct"
+					},
+					"response": []
+				}
+			],
+			"id": "5a846dab-70c1-45d7-adf6-19ba017e06e9"
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Add Order",
+					"id": "20e6db52-6ec7-4941-97b9-62999c4b9734",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsInVzZXJJZCI6IjY1ZDA5N2NmZmE3NDcyM2YzMzE2ZWY3OCIsImlhdCI6MTcwODE2OTI2NSwiZXhwIjoxNzA4MTkwODY1fQ.FKiUgeZs4hKREuiR3gOzr2upIUR2O1HniWAhzDIYoHk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productIds\" : [\"65cf470e2cc7aacd5d314a2a\",\"65cf46e92cc7aacd5d314a26\",\"65cf38e4ac68c4c9e2f2fe93\"],\r\n    \"totalPrice\" : 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_ORDERS}}/addProducts"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Orders",
+					"id": "70bd2c2c-30c6-4031-85d9-0a235e37b98e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haGVzaHdhcmludEBnbWFpbC5jb20iLCJ1c2VySWQiOiI2NWNlZTIwOTIxZmFmZmNjNzU2N2MyMjQiLCJpYXQiOjE3MDg2ODgxNjMsImV4cCI6MTcwODcwOTc2M30.nXkKNuNggoURSTtQIbtzAP8LBNiI4sI423_Om_i9n3U",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_ORDERS}}/getProducts"
+					},
+					"response": []
+				}
+			],
+			"id": "c0025724-4180-49cb-b667-657376c79741"
+		}
+	]
+}
