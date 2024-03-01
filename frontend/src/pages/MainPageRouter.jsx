@@ -36,7 +36,7 @@ const MainPageRouter = () => {
             />
             <Routes>
                 <Route path="/" element={<HomePage searchQuery={searchQuery} sortQuery={sortQuery}/>}/>
-                <Route path="cart" element={<Cart userName={userName}/>}/>
+                <Route path="/cart" element={<Cart userName={userName}/>}/>
                 <Route path="/orders" element={<Order userName={userName}/>}/>
                 <Route path="/product/:productId" element={<Product/>} />
             </Routes>

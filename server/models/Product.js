@@ -30,5 +30,5 @@ const productSchema = new mongoose.Schema(
     {timestamps: true}   
 );
 
-// Export the Mongoose model for the user schema, using the name "User"
+
 module.exports = mongoose.model("Product", productSchema);

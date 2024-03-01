@@ -33,8 +33,9 @@ const Navbar = ({ handleInputChange, searchQuery, userName,setUserName,handleSor
  }
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('jwtToken');
     localStorage.removeItem('userName');
+    localStorage.clear();
     setUserName(null);
   };
 

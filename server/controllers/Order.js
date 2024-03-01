@@ -1,4 +1,3 @@
-const User = require('../models/User');
 const Order = require('../models/Order');
 
 exports.addOrder = async(req,res) => {
@@ -11,19 +10,20 @@ exports.addOrder = async(req,res) => {
                 message:"Incomplete information send for adding order"
             });
         }
+
         const savedOrder = await Order.create({
             user:userId,
             orderItems:productIds,
             totalPrice
         });
-        const newUser = await User.findOneAndUpdate(
-            {_id:userId},
-            {$push : {orders:savedOrder}},
-            {new:true}
-        );
-        if(!newUser){
-            return res.status(400).json({ success:false, message: 'User Not Found' });
-        }
+        // const newUser = await User.findOneAndUpdate(
+        //     {_id:userId},
+        //     {$push : {orders:savedOrder}},
+        //     {new:true}
+        // );
+        // if(!newUser){
+        //     return res.status(400).json({ success:false, message: 'User Not Found' });
+        // }
         return res.status(200).json({ succes:true, message: 'Order Placed successfully.'})
     }catch(error){
         console.error(error);
@@ -44,10 +44,10 @@ exports.getOrders = async(req,res) => {
                 message:"Incomplete information send for fetching order"
             });
         }
-        const user = await User.findById(userId);
-        if(!user){
-            return res.status(400).json({ success:false, message: 'User Not Found' });
-        }
+        // const user = await User.findById(userId);
+        // if(!user){
+        //     return res.status(400).json({ success:false, message: 'User Not Found' });
+        // }
         const userOrders = await Order.find({ user: userId }).populate('orderItems');
         const userOrderProducts = userOrders.map(order => {
             return {
