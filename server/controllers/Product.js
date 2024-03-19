@@ -50,6 +50,25 @@ exports.getAllProducts = async (req, res) => {
     }
 }
 
+exports.getAllProductIds = async (req,res) => {
+  try{
+    // console.log(98);
+    const ids = await Product.find({}, '_id');
+    const productIds = ids.map(product => product._id.toString());
+    // console.log(productIds);
+    return res.status(200).json({
+      success: true,
+      productIds
+  });
+  }catch(error){
+    console.error('Error fetching product IDs:', error);
+    return res.status(500).json({
+      success: false,
+      message: `Getting all product ids failed`,
+    });
+  }
+}
+
 // exports.addProduct = async (req,res) => {
 //   try{
 //     const {name,category,price,rating,description,image} = req.body;
