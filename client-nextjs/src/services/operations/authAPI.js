@@ -8,7 +8,7 @@ export async function login(email, password, router){
             email,
             password
         });
-      
+        console.log(response);
         if(response.data.success === false){
             toast.error(response.data.message);
             throw new Error(response.data.message);
