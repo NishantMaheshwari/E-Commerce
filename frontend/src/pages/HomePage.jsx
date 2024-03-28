@@ -6,7 +6,7 @@ import { useState } from "react";
 const HomePage = ({searchQuery,sortQuery}) => {
     const [category,setCategory] = useState('All'); 
     const handleCategoryChange = (e) => {
-         console.log(category,e.target.value);
+        //  console.log(category,e.target.value);
         setCategory(e.target.value);
     }
     const [rating,setRating] = useState('All'); 

@@ -24,7 +24,7 @@ const Cart = () => {
   const calculateTotalAmount = (items) => {
     let total = 0;
     items.forEach((item) => {
-      total += item.price;
+      total += item.product.price;
     });
     setTotalAmount(total);
   };
@@ -50,7 +50,7 @@ const Cart = () => {
 
   const handlePlaceOrder = async () => {
     try {
-      const productIds = cartItems.map((item) => item._id);
+      const productIds = cartItems.map((item) => item.product.id);
       await addProductsToOrder(productIds, totalAmount);
       await emptyCart();
       setCartItems([]);
@@ -60,7 +60,7 @@ const Cart = () => {
     }
   };
 
-  console.log(username);
+
 
   if (!isMounted) {
     return null;
@@ -75,14 +75,14 @@ const Cart = () => {
             {cartItems.length > 0 ? (
               <div>
                 {cartItems.map((item) => (
-                  <div key={item._id} className={styles['cart-item']}>
-                    <img src={item.image} alt={item.name} className={styles['cart-item-image']} />
+                  <div key={item.product.id} className={styles['cart-item']}>
+                    <img src={item.product.image} alt={item.product.name} className={styles['cart-item-image']} />
                     <div className={styles['cart-item-details']}>
                       <div>
-                        <h3>{item.name}</h3>
-                        <p>Price: Rs {item.price}</p>
+                        <h3>{item.product.name}</h3>
+                        <p>Price: Rs {item.product.price}</p>
                       </div>
-                      <RiDeleteBinLine className={styles['delete-icon']} onClick={() => handleDelete(item._id)} />
+                      <RiDeleteBinLine className={styles['delete-icon']} onClick={() => handleDelete(item.product.id)} />
                     </div>
                   </div>
                 ))}

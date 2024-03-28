@@ -14,7 +14,7 @@ export default function Home() {
   const [category,categoryDispatch] = useReducer(categoryReducer,'All');
   const [rating,ratingDispatch] = useReducer(ratingReducer,'All');
 
-  console.log(category);
+  // console.log(category);
   
 
   return (

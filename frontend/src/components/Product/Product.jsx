@@ -21,7 +21,7 @@ const Product = () => {
   const fetchProduct = async (productId) => {
     try {
       const productData = await getProduct(productId);
-      console.log(productData);
+      // console.log(productData);
       setProduct(productData);  
     } catch (error) {
       throw new Error('Error fetching product');

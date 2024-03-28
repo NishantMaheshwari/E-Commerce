@@ -1,6 +1,6 @@
 const BASE_URL = "https://e-commerce-backend-eight-rho.vercel.app/api";
 
-console.log(BASE_URL);
+// console.log(BASE_URL);
 
 export const authEndpoints = {
     LOGIN_API : BASE_URL + "/auth/login"

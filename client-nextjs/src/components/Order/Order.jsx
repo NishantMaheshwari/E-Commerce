@@ -38,7 +38,7 @@ const Order = () => {
                         {userOrders.map((orderInfo, index) => (
                             <div key={index} className={`${styles['order']} ${theme.darkMode ? styles['dark-mode'] : ''}`}>
                                 <h3>Order ID: {index + 1}</h3>
-                                {orderInfo.orders.map((product, idx) => (
+                                {orderInfo.products.map((product, idx) => (
                                     <div key={idx} className={styles['order-item']}>
                                         <img src={product.image} alt={product.name} className={styles['order-item-image']} />
                                         <div className={styles['order-item-details']}>

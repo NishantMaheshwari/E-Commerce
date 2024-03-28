@@ -39,15 +39,15 @@ const Products = () => {
 
     return (
         <div className={`${styles['card-container']} ${theme.darkMode ? styles['dark-mode'] : ''}`}>
-            {searchProducts.map(({ name, category, price, rating, image, _id }) => (
+            {searchProducts.map(({ name, category, price, rating, image, id }) => (
                 <Card
-                    key={_id}
+                    key={id}
                     name={name}
                     category={category}
                     price={price}
                     rating={rating}
                     image={image}
-                    id={_id}
+                    id={id}
                 />
             ))}
         </div>

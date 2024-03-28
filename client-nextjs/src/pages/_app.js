@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }) {
 
   const isHomePage = router.pathname === '/';
 
-  console.log(username);
+  // console.log(username);
 
   return (
   <div>
