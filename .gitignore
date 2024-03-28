@@ -3,6 +3,7 @@
 # dependencies
 frontend/node_modules/
 server/node_modules/
+graphql-server/node_modules/
 /.env
 /.pnp
 .pnp.js

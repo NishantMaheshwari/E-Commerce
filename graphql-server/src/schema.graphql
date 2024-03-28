@@ -1,0 +1,52 @@
+type UserPayload {
+  userName: String!
+  sessionToken: String!
+  message: String!
+}
+
+type Product {
+  id: ID!
+  name: String!
+  price: Float!
+  description: String!
+  rating: Int!
+  image: String!
+  category: String!
+}
+
+type CartItem {
+  id: ID!
+  product: Product!
+}
+
+type Order {
+  id: ID!
+  products: [Product]!
+  totalPrice: Float!
+}
+
+type Query {
+  loginUser(email: String!, password: String!): UserPayload!
+  getProductById(productId: ID!): Product!
+  getAllProducts(category: String, rating: String, sortQuery: String): [Product]!
+  getAllProductIds: [String]!
+  getCart: [CartItem]!
+  getOrders: [Order]!
+}
+
+type Mutation {
+  addProductToCart(productId: ID!): CartItemPayload!
+  removeProductFromCart(productId: ID!): CartItemPayload!
+  emptyCart: CartItemPayload!
+  addProductsToOrder(productIds: [ID]!,totalPrice: Float!): OrderPayload!
+}
+
+type CartItemPayload{
+  success: Boolean!
+  message: String!
+}
+
+type OrderPayload{
+  success: Boolean!
+  message: String!
+}
